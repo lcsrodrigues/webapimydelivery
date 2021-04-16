@@ -1,27 +1,30 @@
 {
-  "name": "webapimydelivery",
+  "name": "backend-my-delivery",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "prestart":"npm i",
-    "start": "node app.js"
+    "prestart": "npm i",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lcsrodrigues/webapimydelivery.git"
+    "url": "git+https://github.com/lcsrodrigues/backend-myDelivery.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lcsrodrigues/webapimydelivery/issues"
+    "url": "https://github.com/lcsrodrigues/backend-myDelivery/issues"
   },
-  "homepage": "https://github.com/lcsrodrigues/webapimydelivery#readme",
+  "homepage": "https://github.com/lcsrodrigues/backend-myDelivery#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "consign": "^0.1.6",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mysql": "^2.18.1"
-  }
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {},
+  "description": ""
 }
