@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 
-const conn = mysql.createConnection({
+const conn = mysql.createPool({
     host: 'mysql743.umbler.com',
     port: 3306,
     user: 'lcsrodrigues',
