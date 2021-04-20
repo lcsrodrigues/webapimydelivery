@@ -1,7 +1,7 @@
 - Criação do Banco via sequelize:
     * npx sequelize db:create
 -Criacao da migration produto:
-    * npx sequelize migration:create --name=create-produto
+    * npx sequelize migration:create --name=create-produtos
 -Criação da table com a migration:
     ele sempre cria no plural e sempre busca no plural
     * npx sequelize db:migrate
