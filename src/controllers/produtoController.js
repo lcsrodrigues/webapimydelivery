@@ -59,7 +59,7 @@ module.exports = {
         });
 
         if (produto_id == "" || produto_id == null){
-            return res.status(200).send({message: "Id de prosuto não encontrado para ser deletado"});
+            return res.status(200).send({message: "Id de produto não encontrado para ser deletado!"});
         }else{
             return res.status(200).send({
                 status: 1,
