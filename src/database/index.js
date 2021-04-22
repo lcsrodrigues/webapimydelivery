@@ -5,11 +5,13 @@ const produtoController = require('../controllers/produtoController');
 
 const Produto = require('../models/produto');
 const Cliente = require('../models/cliente');
+const Pedido = require('../models/pedido');
 
 const connection = new Sequelize(dbConfig);
 
 Produto.init(connection);
 Cliente.init(connection);
+Pedido.init(connection);
 
 
 // try {

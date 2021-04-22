@@ -45,7 +45,7 @@ module.exports = {
 
         return res.status(200).send({
             status: 1,
-            message: 'Cliente atualizado com secesso'
+            message: 'Cliente atualizado com sucesso'
         });
     },
 

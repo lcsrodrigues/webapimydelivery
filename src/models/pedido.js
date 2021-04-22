@@ -4,7 +4,7 @@ class Pedido extends Model {
     static init(sequelize){
         super.init({
             numero: DataTypes.INTEGER,
-            desricao: DataTypes.STRING,
+            descricao: DataTypes.STRING,
         }, {sequelize})
     }
 }

@@ -1,6 +1,7 @@
 const express = require('express');
 const clienteController = require('./controllers/clienteController');
 const produtoController = require('./controllers/produtoController');
+const pedidoController = require('./controllers/pedidoController');
 
 const router = express.Router();
 
@@ -27,6 +28,16 @@ router.put('/clientes/:cliente_id', clienteController.update);
 router.delete('/clientes/:cliente_id', clienteController.delete);
 
 router.get('/clientes/:cliente_id', clienteController.findByPk);
+
+router.get('/pedidos', pedidoController.index);
+
+router.post('/pedidos', pedidoController.store);
+
+router.put('/pedidos/:pedido_id', pedidoController.update);
+
+router.delete('/pedidos/:pedido_id', pedidoController.delete);
+
+router.get('/pedidos/:pedido_id', pedidoController.findByPk)
 
 
 
