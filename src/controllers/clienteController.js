@@ -1,4 +1,5 @@
 const Cliente = require('../models/cliente');
+// const Produto = require('../models/produto');
 
 
 module.exports = {
@@ -7,7 +8,7 @@ module.exports = {
 
         const clientes = await Cliente.findAll();
 
-        if (clientes == "" || clientes == null){
+        if (clientes == "" || clientes == null || clientes == undefined){
             return res.status(200).send({message: "Nenhum cliente cadastrado"});
         }else{
             return res.status(200).send({clientes});
