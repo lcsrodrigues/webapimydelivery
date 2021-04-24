@@ -10,4 +10,7 @@ A sequelize meta registra as migrations que EU executei se outro desevolvedor ex
 - Exluir uma tabela
     *npx sequelize db:migrate:undo
 
+=================================================================
+- Model pedido.js não coloquei o momento do pedido pois podemos usar o creatAt do sequelize
 
+- coloquei número em pedido e produto independente de ter id's, pois podemos dar um número identificar para um tipo de produto

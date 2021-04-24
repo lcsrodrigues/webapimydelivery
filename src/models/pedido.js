@@ -3,8 +3,11 @@ const { Model, DataTypes } = require('sequelize');
 class Pedido extends Model {
     static init(sequelize){
         super.init({
-            numero: DataTypes.INTEGER,
             descricao: DataTypes.STRING,
+            latitude: DataTypes.NUMBER,
+            longitude: DataTypes.NUMBER,
+            status: DataTypes.STRING,
+            total: DataTypes.NUMBER
         }, {sequelize})
     }
 }
