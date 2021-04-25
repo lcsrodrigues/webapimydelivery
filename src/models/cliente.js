@@ -1,11 +1,12 @@
 const { Model, DataTypes } = require('sequelize');
+const Pessoa = require('./pessoa');
 
-class Cliente extends Model {
+
+class Cliente extends Pessoa {
     static init(sequelize){
         super.init({
-            name: DataTypes.STRING,
-            email: DataTypes.STRING,
-            password: DataTypes.STRING
+            dataCadastro: DataTypes.DATEONLY,
+            ativo: DataTypes.BOOLEAN
         }, {sequelize})
     }
 }
