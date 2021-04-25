@@ -9,6 +9,10 @@ class Cliente extends Pessoa {
             ativo: DataTypes.BOOLEAN
         }, {sequelize})
     }
+
+    static associate(models){
+        this.belongsTo(models.Pedido, { foreignKey: 'pedido_id', as: 'pedido'});
+    }
 }
 
 module.exports = Cliente;
