@@ -5,12 +5,12 @@ class Pessoa extends Model {
         super.init({
             nome: DataTypes.STRING,
             endereco: DataTypes.STRING,
-            idade: DataTypes.NUMBER,
+            idade: DataTypes.INTEGER,
             genero: DataTypes.STRING,
             cidade: DataTypes.STRING,
             estado: DataTypes.STRING,
-            dataAniversario: DataTypes.DATEONLY,
-            cpf: DataTypes.NUMBER
+            dataAniversario: DataTypes.DATE,
+            cpf: DataTypes.INTEGER
         }, {sequelize})
     }
 }

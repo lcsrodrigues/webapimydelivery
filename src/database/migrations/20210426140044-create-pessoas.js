@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     
-    return queryInterface.createTable('produtos', {
+    return queryInterface.createTable('pessoas', {
       id:{
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -11,21 +11,37 @@ module.exports = {
         allowNull: false,
       },
       nome:{
+         type: Sequelize.STRING,
+         allowNull: false,
+      },
+      endereco:{
         type: Sequelize.STRING,
         allowNull: false,
       },
-      preco:{
+      idade:{
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
       },
-      quantidade:{
+      genero:{
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      cidade:{
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      estado:{
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      dataAniversario:{
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      cpf:{
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
       },
-      // ativo:{
-      //   type: Sequelize.BOOLEAN,
-      //   allowNull: false
-      // },
       created_at:{
         type: Sequelize.DATE,
         allowNull: false
@@ -40,6 +56,7 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
    
-    return queryInterface.dropTable('produtos');
+    return queryInterface.dropTable('pessoas');
   }
 };
+

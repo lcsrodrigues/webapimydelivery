@@ -11,7 +11,7 @@ module.exports = {
         allowNull: false,
       },
       dataCadastro:{
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false,
       },
       ativo:{
