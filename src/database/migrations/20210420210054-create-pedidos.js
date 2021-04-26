@@ -10,9 +10,13 @@ module.exports = {
         autoIncrement:true,
         allowNull: false,
       },
-      numero:{
+      cliente_id:{
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: { model: 'clientes', key: 'id'},
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+
       },
       descricao:{
          type: Sequelize.STRING,

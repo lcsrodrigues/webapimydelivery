@@ -5,10 +5,8 @@ class Produto extends Model {
         super.init({
             nome: DataTypes.STRING,
             preco: DataTypes.NUMBER,
-            descricao: DataTypes.TEXT,
-            quantidade: DataTypes.NUMBER,
-            imgUrl: DataTypes.STRING,
-            ativo: DataTypes.BOOLEAN 
+            quantidade: DataTypes.NUMBER
+            // ativo: DataTypes.BOOLEAN 
         }, {sequelize})
     }
 }

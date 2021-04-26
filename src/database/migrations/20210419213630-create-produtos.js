@@ -10,10 +10,22 @@ module.exports = {
         autoIncrement:true,
         allowNull: false,
       },
-      name:{
+      nome:{
         type: Sequelize.STRING,
         allowNull: false,
       },
+      preco:{
+        type: Sequelize.NUMBER,
+        allowNull: false
+      },
+      quantidade:{
+        type: Sequelize.NUMBER,
+        allowNull: false
+      },
+      // ativo:{
+      //   type: Sequelize.BOOLEAN,
+      //   allowNull: false
+      // },
       created_at:{
         type: Sequelize.DATE,
         allowNull: false

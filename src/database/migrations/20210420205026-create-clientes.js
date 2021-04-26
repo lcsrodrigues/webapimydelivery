@@ -10,18 +10,14 @@ module.exports = {
         autoIncrement:true,
         allowNull: false,
       },
-      name:{
-        type: Sequelize.STRING,
+      dataCadastro:{
+        type: Sequelize.DATE,
         allowNull: false,
       },
-      email:{
-         type: Sequelize.STRING,
+      ativo:{
+         type: Sequelize.DataTypes.BOOLEAN,
          allowNull: false,
       },
-      password:{
-        type: Sequelize.STRING,
-        allowNull: false,
-     },
       created_at:{
         type: Sequelize.DATE,
         allowNull: false
