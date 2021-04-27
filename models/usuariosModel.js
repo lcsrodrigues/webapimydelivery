@@ -1,10 +1,10 @@
 const conn = require('../config/connection');
 
-class Pessoas {
-    create(pessoa, res) {
-        const sql = "INSERT INTO Pessoas SET ?";
+class Usuarios {
+    create(usuario, res) {
+        const sql = "INSERT INTO Usuarios SET ?";
 
-        conn.query(sql, pessoa, (err, result) => {
+        conn.query(sql, usuario, (err, result) => {
             if (err) {
                 res.status(400).json(err);
             } else {
@@ -14,7 +14,7 @@ class Pessoas {
     };
 
     getAll(res) {
-        const sql = "SELECT * FROM Pessoas";
+        const sql = "SELECT * FROM Usuarios";
 
         conn.query(sql, (err, result) => {
             if (err) {
@@ -26,4 +26,4 @@ class Pessoas {
     }
 }
 
-module.exports = new Pessoas;
+module.exports = new Usuarios;
