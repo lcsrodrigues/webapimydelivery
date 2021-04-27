@@ -2,11 +2,11 @@ const Usuarios = require('./../models/usuariosModel');
 
 module.exports = app => {
 
-    app.get('/Pessoas', (req, res) => {
+    app.get('/Usuarios', (req, res) => {
         Usuarios.getAll(res);
     });
 
-    app.post('/Pessoa', (req, res) => {
+    app.post('/Usuario', (req, res) => {
         Usuarios.create(req.body, res);
     });
 }
