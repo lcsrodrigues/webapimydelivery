@@ -1,10 +1,10 @@
 const conn = require('../config/connection');
 
-class Produtos {
-    create(pessoa, res) {
-        const sql = "INSERT INTO Produtos SET ?";
+class Refeicoes {
+    create(refeicao, res) {
+        const sql = "INSERT INTO Refeicoes SET ?";
 
-        conn.query(sql, pessoa, (err, result) => {
+        conn.query(sql, refeicao, (err, result) => {
             if (err) {
                 res.status(400).json(err);
             } else {
@@ -14,7 +14,7 @@ class Produtos {
     };
 
     getAll(res) {
-        const sql = "SELECT * FROM Produtos";
+        const sql = "SELECT * FROM Refeicoes";
 
         conn.query(sql, (err, result) => {
             if (err) {
@@ -26,4 +26,4 @@ class Produtos {
     }
 }
 
-module.exports = new Produtos;
+module.exports = new Refeicoes;

@@ -4,7 +4,9 @@ class Tables {
         this.createProdutos();
         this.createUsuarios();
         this.createExercicios();
+        this.createRefeicoes();
     }
+    
     createProdutos() {
 
         const sql = 'CREATE TABLE IF NOT EXISTS Produtos (id INT NOT NULL AUTO_INCREMENT, TITULO VARCHAR(100) NOT NULL, PRECO FLOAT NOT NULL, DESCRICAO TEXT, ATIVO BOOLEAN, IMAGEM VARCHAR(50), PRIMARY KEY(id))';
@@ -40,6 +42,19 @@ class Tables {
                 console.log(err);
             } else {
                 console.log("Tabela Exercicios criada com sucesso.");
+            }
+        });
+    }
+
+    createRefeicoes() {
+
+        const sql = 'CREATE TABLE IF NOT EXISTS Refeicoes (id INT NOT NULL AUTO_INCREMENT, TITULO VARCHAR(100) NOT NULL, HORARIO VARCHAR(100) NOT NULL, DESCRICAO TEXT, PESSOA_ID INT NOT NULL, PRIMARY KEY(id))';
+
+        this.conn.query(sql, (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Tabela Refeicoes criada com sucesso.");
             }
         });
     }
