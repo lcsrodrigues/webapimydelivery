@@ -5,8 +5,8 @@ class Produto extends Model {
         super.init({
             nome: DataTypes.STRING,
             preco: DataTypes.INTEGER,
-            quantidade: DataTypes.INTEGER
-            // ativo: DataTypes.BOOLEAN 
+            quantidade: DataTypes.INTEGER,
+            ativo: DataTypes.BOOLEAN 
         }, {sequelize})
     }
 }
