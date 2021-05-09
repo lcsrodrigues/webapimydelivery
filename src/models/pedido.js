@@ -7,9 +7,9 @@ class Pedido extends Model {
         }, {sequelize})
     }
 
-    static associate(models){
-        this.belongsTo(models.Cliente, { foreignKey: 'cliente_id', as: 'cliente'});
-    }
+    // static associate(models){
+    //     this.belongsToMany(models.Cliente, { foreignKey: 'cliente_id', as: 'cliente'});
+    // }
 }
 
 module.exports = Pedido;

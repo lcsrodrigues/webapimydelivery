@@ -1,31 +1,78 @@
 const Cliente = require('../models/cliente');
 // const Produto = require('../models/produto');
+const Pedido = require('../models/pedido');
 
 
 module.exports = {
 
     async index(req,res){ // findAll
 
-        const clientes = await Cliente.findAll();
+        const { pedido_id } = req.params;
 
-        if (clientes == "" || clientes == null || clientes == undefined){
-            return res.status(200).send({message: "Nenhum cliente cadastrado"});
-        }else{
-            return res.status(200).send({clientes});
+        const pedido = await Pedido.findByPk(pedido_id, {
+            include: { association: 'cliente'}
+        });
+
+        if(!pedido){
+            return res.status(400).send({
+                status: 0,
+                message: 'Pedido não encontrado!'
+            });
         }
+
+        return res.status(200).send(pedido.cliente);
+
+        // const clientes = await Cliente.findAll();
+
+        // if (clientes == "" || clientes == null || clientes == undefined){
+        //     return res.status(200).send({message: "Nenhum cliente cadastrado"});
+        // }else{
+        //     return res.status(200).send({clientes});
+        // }
 
     },
 
-    async store(req,res){ //Save
+    async store(req, res){ //Save
 
-        const {name, email, password} = req.body;
+        try{
 
-        const cliente = await Cliente.create({name, email, password});
+            const { pedido_id } = req.params;
+            const { dataCadastro, ativo } = req.body;
 
-        return res.status(200).send({
-            status: 1,
-            message: 'Cliente cadastrado com sucesso', cliente
-        });
+            const pedido = await Pedido.findByPk(pedido_id);
+
+            if(!pedido) {
+                return res.status(400).json({
+                    status: 0,
+                    message: 'Pedido não encontrado!'
+                });
+            }
+
+            const cliente = await Cliente.create({
+                dataCadastro,
+                ativo,
+
+            });
+
+            return res.status(200).json({
+                status: 1,
+                message: "Cliente cadastrado com sucesso!",
+                cliente
+            });
+
+        } catch (err){
+            return res.status(400).json({ error: err });
+
+        }
+
+        // const {name, email, password} = req.body;
+
+        // const cliente = await Cliente.create({name, email, password});
+
+        // return res.status(200).send({
+        //     status: 1,
+        //     message: 'Cliente cadastrado com sucesso', cliente
+        // });
 
     },
 
