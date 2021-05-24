@@ -78,42 +78,90 @@ module.exports = {
 
     async update(req,res){ //Atualizar
 
-        const {name, email, password} = req.body;
+        const id = req.params.id;
+        const {dataCadastro, ativo } = req.body;
 
-        const {cliente_id} = req.params;
+        try{
+            const cliente = await Cliente.findByPk(id);
 
-        await Cliente.update({
-            name, email, password
-        },{
-            where:{
-                id: cliente_id
+            if(cliente){
+                await Cliente.update({ dataCadastro, ativo}, {where: { id }});
+
+                return res.status(200).json({
+                    status: 1,
+                    message: "Cliente atualizado com sucesso!"
+                });
+            }else {
+                return res.status(400).json({
+                    status:0,
+                    message:"Clinte não encontrado!"
+                });
             }
-        });
+        }catch(err){
+            return res.status(400).json({
+                status:0,
+                message: "erro ao atualizar cliente"
+            });
+        }
 
-        return res.status(200).send({
-            status: 1,
-            message: 'Cliente atualizado com sucesso'
-        });
+        // const {name, email, password} = req.body;
+
+        // const {cliente_id} = req.params;
+
+        // await Cliente.update({
+        //     name, email, password
+        // },{
+        //     where:{
+        //         id: cliente_id
+        //     }
+        // });
+
+        // return res.status(200).send({
+        //     status: 1,
+        //     message: 'Cliente atualizado com sucesso'
+        // });
     },
 
     async delete(req,res){
 
-        const { cliente_id } = req.params;
+        const id = req.params.id;
 
-        await Cliente.destroy({
-            where:{
-                id: cliente_id
+        try{
+            const cliente = await Cliente.findByPk(id);
+
+            if(cliente) {
+                await Cliente.destroy({ where: { id } });
+
+                return res.status(200).json({
+                    status: 1,
+                    message: "Cliente apagado com sucesso"
+                });
+            }else{
+                return res.status(400).json({
+                    status: 0,
+                    message: "Cliente não encontrado!"
+                });
             }
-        });
-
-        if (cliente_id == "" || cliente_id == null){
-            return res.status(200).send({message: "Id de cliente não encontrado para ser deletado!"})
-        } else{
-            return res.status(200).send({
-                status:1,
-                message: 'Cliente deletado com sucesso!'
-            });
+        }catch(err) {
+            return res.status(400).json({ error: err});
         }
+
+        // const { cliente_id } = req.params;
+
+        // await Cliente.destroy({
+        //     where:{
+        //         id: cliente_id
+        //     }
+        // });
+
+        // if (cliente_id == "" || cliente_id == null){
+        //     return res.status(200).send({message: "Id de cliente não encontrado para ser deletado!"})
+        // } else{
+        //     return res.status(200).send({
+        //         status:1,
+        //         message: 'Cliente deletado com sucesso!'
+        //     });
+        // }
 
     },
 
