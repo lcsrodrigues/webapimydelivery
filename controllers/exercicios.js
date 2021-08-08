@@ -2,11 +2,11 @@ const Exercicios = require('../models/exerciciosModel');
 
 module.exports = app => {
 
-    app.get('/Exercicios', (req, res) => {
+    app.get('/_api/myfit/exercicios', (req, res) => {
         Exercicios.getAll(res);
     });
 
-    app.post('/Exercicio', (req, res) => {
+    app.post('/_api/myfit/exercicio', (req, res) => {
         Exercicios.create(req.body, res);
     });
 }
