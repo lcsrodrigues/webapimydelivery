@@ -18,6 +18,10 @@ tables.init(conn);
 
 const app = customExpress();
 
+app.get('/', (req, res) => {
+    res.status(200).send("Web api online");
+});
+
 app.listen(PORT, () => {
-    console.log("servidor rodando na porta %s,",PORT);
+    console.log("servidor rodando na porta %s,", PORT);
 });
