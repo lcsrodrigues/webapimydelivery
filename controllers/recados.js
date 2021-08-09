@@ -4,7 +4,7 @@ const path = require('path');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './../uploads/');
+        cb(null, path.join(__dirname, 'uploads'));
     },
     filename: function (req, file, cb) {
         cb(null, new Date().toISOString() + "_" + file.originalname);
@@ -16,7 +16,6 @@ const upload = multer({ storage: storage });
 module.exports = app => {
 
     app.get('/_api/comemoracao/recados', (req, res) => {
-        console.log(path.join(__dirname, 'uploads'));
         Recados.getAll(res);
     });
 
