@@ -8,8 +8,18 @@ module.exports = app => {
         Recados.getAll(res);
     });
 
-    app.post('/_api/comemoracao/recado', upload.single('perfil'), (req, res) => {
+    app.post('/_api/comemoracao/recado', upload.single('PERFIL'), (req, res) => {
         console.log(req.file);
-        Recados.create(req.body, res);
+        console.log(req.body);
+
+        var data = {
+            NOME: req.body.NOME,
+            DESCRICAO: req.body.DESCRICAO,
+            PERFIL: req.file.path
+        }
+
+        console.log(data);
+
+        Recados.create(data, res);
     });
 }
