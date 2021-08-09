@@ -2,6 +2,7 @@ const express = require('express');
 const consign = require('consign');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 
 module.exports = () => {
 
@@ -16,7 +17,7 @@ module.exports = () => {
     app.use(cors());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
-    app.use('./../uploads', express.static('uploads'));
+    app.use('./../uploads', express.static(path.join(__dirname, 'uploads')));
 
     consign()
         .include('controllers')
