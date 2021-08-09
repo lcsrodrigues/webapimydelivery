@@ -3,7 +3,7 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './../uploads/');
+        cb(null, '?./uploads/');
     },
     filename: function (req, file, cb) {
         cb(null, new Date().toISOString() + "_" + file.originalname);
@@ -25,7 +25,7 @@ module.exports = app => {
             PERFIL: req.file.path
         }
 
-        console.log(data);
+        console.log("data ======> ", data);
 
         Recados.create(data, res);
     });
