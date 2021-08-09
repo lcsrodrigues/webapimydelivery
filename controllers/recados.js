@@ -3,7 +3,7 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './uploads/');
+        cb(null, './../uploads/');
     },
     filename: function (req, file, cb) {
         cb(null, new Date().toISOString() + "_" + file.originalname);
@@ -19,9 +19,6 @@ module.exports = app => {
     });
 
     app.post('/_api/comemoracao/recado', upload.single('PERFIL'), (req, res) => {
-        console.log(req.file);
-        console.log(req.body);
-
         var data = {
             NOME: req.body.NOME,
             DESCRICAO: req.body.DESCRICAO,
