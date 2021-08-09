@@ -24,7 +24,7 @@ module.exports = app => {
         var data = {
             NOME: req.body.NOME,
             DESCRICAO: req.body.DESCRICAO,
-            PERFIL: req.file.path
+            PERFIL: (typeof (req.file.path) != "undefined") ? req.file.path : null
         }
 
         console.log("data ======> ", data);
