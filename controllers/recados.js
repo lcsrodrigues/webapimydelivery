@@ -21,10 +21,11 @@ module.exports = app => {
     });
 
     app.post('/_api/comemoracao/recado', upload.single('PERFIL'), (req, res) => {
+        console.log(req.file);
         var data = {
             NOME: req.body.NOME,
             DESCRICAO: req.body.DESCRICAO,
-            PERFIL: (typeof (req.file.path) != "undefined") ? req.file.path : null
+            PERFIL: (typeof (req.file) != "undefined") ? req.file.path : null
         }
 
         console.log("data ======> ", data);
