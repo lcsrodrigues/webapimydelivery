@@ -6,8 +6,10 @@ class Tables {
         this.createExercicios();
         this.createRefeicoes();
         this.createEventos();
+        this.createRecados();
     }
 
+    //CRUD do MyDelivery
     createProdutos() {
 
         const sql = 'CREATE TABLE IF NOT EXISTS Produtos (id INT NOT NULL AUTO_INCREMENT, TITULO VARCHAR(100) NOT NULL, PRECO FLOAT NOT NULL, DESCRICAO TEXT, ATIVO BOOLEAN, IMAGEM VARCHAR(50), PRIMARY KEY(id))';
@@ -61,6 +63,7 @@ class Tables {
         });
     }
 
+    //CRUD Projeto do Rodolpho
     createEventos() {
 
         const sql = "CREATE TABLE IF NOT EXISTS Eventos (id INT NOT NULL AUTO_INCREMENT, TITULO VARCHAR(100) NOT NULL, DESCRICAO TEXT, DATA_CRIACAO DATETIME, CRIADOR VARCHAR(255), PRIMARY KEY(id))";
@@ -70,6 +73,20 @@ class Tables {
                 console.log(err);
             } else {
                 console.log("Tabela Eventos criada com sucesso.");
+            }
+        });
+    }
+
+    //CRUD Mensagem de parabéns
+    createRecados() {
+
+        const sql = "CREATE TABLE IF NOT EXISTS Recados (id INT NOT NULL AUTO_INCREMENT, NOME VARCHAR(255) NOT NULL, DESCRICAO TEXT NOT NULL, PERFIL VARCHAR(500), PRIMARY KEY(id))";
+
+        this.conn.query(sql, (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Tabela Recados criada com sucesso.");
             }
         });
     }
