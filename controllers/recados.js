@@ -12,7 +12,7 @@ const path = require('path');
 // });
 
 // const upload = multer({ storage: storage });
-const upload = multer({ dest: './../uploads' });
+const upload = multer({ dest: 'uploads/' });
 
 module.exports = app => {
 
