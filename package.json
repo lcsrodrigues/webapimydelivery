@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm i",
+    "prestart": "npm i && mkdir uploads",
     "start": "node index.js"
   },
   "repository": {
