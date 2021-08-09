@@ -10,6 +10,6 @@ module.exports = app => {
 
     app.post('/_api/comemoracao/recado', upload.single('perfil'), (req, res) => {
         console.log(req.file);
-        //Reacados.create(req.body, res);
+        Reacados.create(req.body, res);
     });
 }
