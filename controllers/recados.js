@@ -2,16 +2,17 @@ const Recados = require('../models/recadosModel');
 const multer = require('multer');
 const path = require('path');
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, 'uploads'));
-    },
-    filename: function (req, file, cb) {
-        cb(null, new Date().toISOString() + "_" + file.originalname);
-    }
-});
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, path.join(__dirname, 'uploads'));
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, new Date().toISOString() + "_" + file.originalname);
+//     }
+// });
 
-const upload = multer({ storage: storage });
+// const upload = multer({ storage: storage });
+const upload = multer({ dest: './../uploads' });
 
 module.exports = app => {
 
